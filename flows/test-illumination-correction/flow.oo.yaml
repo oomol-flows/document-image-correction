@@ -1,0 +1,15 @@
+title: Test Illumination Correction
+nodes:
+  - node_id: illumination-correction#1
+    task: self::illumination-correction
+    inputs_from:
+      - handle: input_image
+        value: /oomol-driver/oomol-storage/test-image.jpg
+  - node_id: image_preview#1
+    title: "Image preview #1"
+    inputs_from:
+      - handle: image_path
+        from_node:
+          - node_id: illumination-correction#1
+            output_handle: output_image
+    task: oomol-preview::image_preview

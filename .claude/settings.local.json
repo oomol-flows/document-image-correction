@@ -10,7 +10,12 @@
       "Bash(python3:*)",
       "Bash(mkdir:*)",
       "Bash(bash:*)",
-      "Read(//oomol-driver/oomol-storage/model_pretrained/**)"
+      "Read(//oomol-driver/oomol-storage/model_pretrained/**)",
+      "Read(//tmp/**)",
+      "Bash(curl -s \"https://huggingface.co/spaces/HaoFeng2019/DocTr/raw/main/inference_ill.py\" -o /tmp/inference_ill.py)",
+      "Bash(cat:*)",
+      "Read(//oomol-driver/oomol-storage/**)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

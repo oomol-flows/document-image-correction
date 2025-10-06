@@ -1,0 +1,32 @@
+inputs_def:
+  - handle: input_image
+    json_schema:
+      type: string
+      ui:widget: file
+      ui:options:
+        filters:
+          - name: Image Files
+            extensions:
+              - jpg
+              - jpeg
+              - png
+              - bmp
+              - tiff
+    description: "Input document image with poor illumination"
+    nullable: false
+
+outputs_def:
+  - handle: output_image
+    description: "Illumination-corrected document image path"
+    json_schema:
+      type: string
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Document Illumination Correction"
+icon: ":carbon:light:"
+description: "This block corrects uneven illumination and lighting issues in document images using a deep learning Transformer model. It automatically enhances poorly lit documents to improve readability and visual quality."
