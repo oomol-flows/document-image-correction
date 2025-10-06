@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(poetry add:*)",
+      "Bash(poetry install:*)",
+      "mcp__oomol__runFlow",
+      "mcp__oomol__listRunningTasks",
+      "Bash(python:*)",
+      "Bash(poetry remove:*)",
+      "Bash(python3:*)",
+      "Bash(mkdir:*)",
+      "Bash(bash:*)",
+      "Read(//oomol-driver/oomol-storage/model_pretrained/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

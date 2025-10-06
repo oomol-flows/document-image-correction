@@ -1,0 +1,20 @@
+{
+  "nodes": {
+    "document-correction#1": {
+      "rfNode": {
+        "position": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    "image_preview#1": {
+      "rfNode": {
+        "position": {
+          "x": 510.1972082141273,
+          "y": 199.88454860609082
+        }
+      }
+    }
+  }
+}

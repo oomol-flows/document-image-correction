@@ -1,0 +1,32 @@
+inputs_def:
+  - handle: input_image
+    json_schema:
+      type: string
+      ui:widget: file
+      ui:options:
+        filters:
+          - name: Image Files
+            extensions:
+              - jpg
+              - jpeg
+              - png
+              - bmp
+              - tiff
+    description: "Input distorted document image"
+    nullable: false
+
+outputs_def:
+  - handle: output_image
+    description: "Corrected document image path"
+    json_schema:
+      type: string
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Document Distortion Correction"
+icon: ":carbon:document:"
+description: "This block corrects distorted document images using deep learning-based geometric transformation. It automatically segments the document region and applies perspective correction to produce a flattened, readable output."
