@@ -1,0 +1,10 @@
+{
+  "key1": "Have you ever taken photos of documents with your phone, only to find the images distorted, shadowed, or poorly lit? This project offers an intelligent solution that automatically enhances document images by correcting lighting issues and geometric distortions—transforming casually taken photos into clear, readable scans.",
+  "display-name": "Doc Image Correction",
+  "test-document-image-correction": "Test Document Image Correction",
+  "enhanced-result-preview": "Enhanced Result Preview",
+  "document-image-correction": "Document Image Correction",
+  "this-block-provides-complete-document-image-enhancement-by-combi": "This block provides complete document image enhancement by combining illumination correction and geometric distortion correction. It first fixes uneven lighting and shadows, then corrects perspective distortion and curves to produce professional-quality document scans from phone photos.",
+  "input-document-image-can-have-distortion-and-or-poor-lighting": "Input document image (can have distortion and/or poor lighting)",
+  "enable-illumination-correction-before-geometric-correction": "Enable illumination correction before geometric correction"
+}

@@ -1,5 +1,6 @@
 inputs_def:
   - handle: input_image
+    description: "%input-document-image-can-have-distortion-and-or-poor-lighting%"
     json_schema:
       type: string
       ui:widget: file
@@ -12,15 +13,14 @@ inputs_def:
               - png
               - bmp
               - tiff
-    description: "Input document image (can have distortion and/or poor lighting)"
     nullable: false
 
   - handle: enable_illumination_correction
+    description: "%enable-illumination-correction-before-geometric-correction%"
     json_schema:
       type: boolean
-    description: "Enable illumination correction before geometric correction"
-    nullable: false
     value: true
+    nullable: false
 
 outputs_def:
   - handle: output_image
@@ -35,9 +35,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Document Image Correction"
+title: "%document-image-correction%"
 icon: ":carbon:document-tasks:"
-description: "This block provides complete document image enhancement by
-  combining illumination correction and geometric distortion correction. It
-  first fixes uneven lighting and shadows, then corrects perspective distortion
-  and curves to produce professional-quality document scans from phone photos."
+description: "%this-block-provides-complete-document-image-enhancement-by-combi%"

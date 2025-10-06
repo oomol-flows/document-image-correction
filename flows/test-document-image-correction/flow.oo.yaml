@@ -1,4 +1,4 @@
-title: Test Document Image Correction
+title: "%test-document-image-correction%"
 nodes:
   - node_id: document-enhancement#1
     task: self::document-image-correction
@@ -8,7 +8,7 @@ nodes:
       - handle: enable_illumination_correction
         value: true
   - node_id: image_preview#1
-    title: "Enhanced Result Preview"
+    title: "%enhanced-result-preview%"
     inputs_from:
       - handle: image_path
         from_node:

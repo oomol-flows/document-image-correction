@@ -1,0 +1,10 @@
+{
+  "key1": "您是否曾用手机拍摄文档照片，却发现图像扭曲、有阴影或光线不佳？本项目提供了一个智能解决方案，通过修复光照问题和校正几何变形，自动增强文档图像——将随手拍摄的照片转变为清晰可读的扫描件。",
+  "display-name": "文档图像校正",
+  "test-document-image-correction": "测试文档图像校正",
+  "enhanced-result-preview": "增强的结果预览",
+  "document-image-correction": "文档图像校正",
+  "this-block-provides-complete-document-image-enhancement-by-combi": "该模块通过结合光照校正和几何畸变校正，实现了完整的文档图像增强。它首先修正不均匀的照明和阴影，然后校正透视畸变和曲线，从手机照片中生成专业质量的文档扫描件。",
+  "input-document-image-can-have-distortion-and-or-poor-lighting": "输入文档图像（可能有失真和/或光线不足）",
+  "enable-illumination-correction-before-geometric-correction": "在几何校正之前启用照明校正"
+}

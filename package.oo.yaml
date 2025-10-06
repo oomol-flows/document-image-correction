@@ -1,9 +1,14 @@
 version: 0.0.1
 scripts:
-  # Script executed when the container is first loaded
-  # eg: bootstrap: poetry add pandas
   bootstrap: |
     npm install
     poetry install --no-root
+    bash scripts/download_models.sh
 dependencies:
   oomol-preview: 0.1.7
+name: document-image-correction
+repository: https://github.com/oomol-flows/document-image-correction.git
+releaseNotes: init
+displayName: "%display-name%"
+description: "%key1%"
+icon: ./icon.png
