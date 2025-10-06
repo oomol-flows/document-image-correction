@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "document-correction#1": {
+    "document-enhancement#1": {
       "rfNode": {
         "position": {
           "x": 0,
@@ -11,8 +11,8 @@
     "image_preview#1": {
       "rfNode": {
         "position": {
-          "x": 510.1972082141273,
-          "y": 199.88454860609082
+          "x": 600,
+          "y": 0
         }
       }
     }

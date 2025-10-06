@@ -1,0 +1,43 @@
+inputs_def:
+  - handle: input_image
+    json_schema:
+      type: string
+      ui:widget: file
+      ui:options:
+        filters:
+          - name: Image Files
+            extensions:
+              - jpg
+              - jpeg
+              - png
+              - bmp
+              - tiff
+    description: "Input document image (can have distortion and/or poor lighting)"
+    nullable: false
+
+  - handle: enable_illumination_correction
+    json_schema:
+      type: boolean
+    description: "Enable illumination correction before geometric correction"
+    nullable: false
+    value: true
+
+outputs_def:
+  - handle: output_image
+    description: "Enhanced document image path (with illumination and geometric
+      corrections applied)"
+    json_schema:
+      type: string
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Document Image Correction"
+icon: ":carbon:document-tasks:"
+description: "This block provides complete document image enhancement by
+  combining illumination correction and geometric distortion correction. It
+  first fixes uneven lighting and shadows, then corrects perspective distortion
+  and curves to produce professional-quality document scans from phone photos."

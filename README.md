@@ -1,169 +1,108 @@
-# Document Processing Suite
+# Document Image Correction
 
-A comprehensive OOMOL workflow toolkit for document image enhancement, featuring automatic correction of distortion, perspective issues, and lighting problems using advanced deep learning technology.
+Transform your smartphone photos of documents into professional-quality scans with AI-powered correction technology.
 
-## What Does This Toolkit Do?
+## Overview
 
-This toolkit provides two powerful document processing capabilities:
+Have you ever taken a photo of a document with your phone, only to find it distorted, shadowed, or poorly lit? This project provides an intelligent solution that automatically enhances document images by fixing lighting issues and correcting geometric distortions—turning casual photos into clean, readable scans.
 
-1. **Geometric Correction**: Automatically fixes warped, curved, or skewed documents - transforming crooked photos into clean, flat, readable images like professional scans.
+## What Does This Project Do?
 
-2. **Illumination Correction**: Fixes uneven lighting, shadows, and poor illumination - making documents captured in bad lighting conditions clear and readable.
+This OOMOL workflow package uses advanced AI models to process document images through two main corrections:
 
-### Perfect For:
+1. **Illumination Correction**: Removes shadows, evens out lighting, and fixes exposure issues that occur when photographing documents under poor lighting conditions.
 
-- **Mobile Phone Photography**: Fix documents photographed at angles, with poor lighting, or in challenging conditions
-- **Curved Documents**: Straighten images of books, magazines, or papers that are bent or folded
-- **Low-Light Captures**: Enhance documents photographed in dim lighting or with uneven illumination
-- **Quick Digitization**: Convert phone-captured documents into professional-looking scans
-- **Archive Restoration**: Clean up old or damaged document photographs
+2. **Geometric Correction**: Straightens warped or curved documents, corrects perspective distortion, and flattens images taken from angles.
 
-## How It Works
+### Real-World Use Cases
 
-These tools use state-of-the-art AI technology powered by Transformer models:
-
-### Geometric Correction
-1. **Detect the Document**: Automatically identifies the document region in your image
-2. **Analyze Distortion**: Understands how the document is warped or skewed
-3. **Apply Correction**: Intelligently transforms the image to flatten and straighten the document
-4. **Output Clean Result**: Produces a corrected, readable document image
-
-### Illumination Correction
-1. **Analyze Lighting**: Detects uneven illumination, shadows, and lighting issues
-2. **Process in Patches**: Divides the image into overlapping patches for detailed correction
-3. **Apply Enhancement**: Uses transformer-based deep learning to correct each patch
-4. **Reconstruct Image**: Seamlessly combines corrected patches into a uniformly lit document
+- **Office Work**: Quickly digitize paper contracts, receipts, or forms using just your phone
+- **Education**: Convert handwritten notes or textbook pages into clear digital copies
+- **Research**: Archive historical documents or manuscripts with enhanced readability
+- **Travel**: Scan important documents like passports or tickets without a scanner
+- **Remote Work**: Share clear document images in emails or chat without needing scanning equipment
 
 ## Available Blocks
 
-### 1. Document Distortion Correction Block
+### Document Image Correction
 
-**What it does**: Corrects distorted, warped, and skewed document images to produce flattened, readable outputs
+**What it does**: This is the core processing block that takes a document photo and applies both illumination and geometric corrections to produce a professional-quality output.
 
-**Input**:
-- Distorted document image (supports JPG, PNG, BMP, TIFF formats)
-
-**Output**:
-- Corrected, flattened document image
-
-**Use Cases**:
-- Fix perspective distortion from angled photos
-- Straighten curved pages from books or folded papers
-- Convert mobile phone document captures to professional scans
-- Prepare documents for OCR (text recognition)
-
-**Model**: GeoTr (Geometric Transformer) with U2-Net segmentation
-
----
-
-### 2. Document Illumination Correction Block
-
-**What it does**: Corrects uneven lighting, shadows, and illumination issues in document images
-
-**Input**:
-- Document image with poor or uneven lighting (supports JPG, PNG, BMP, TIFF formats)
+**Inputs**:
+- **Input Image**: Your original document photo (supports JPG, PNG, BMP, TIFF formats)
+- **Enable Illumination Correction**: Option to turn on/off the lighting enhancement feature (recommended: enabled)
 
 **Output**:
-- Uniformly illuminated, enhanced document image
+- **Enhanced Image**: A corrected, high-quality document image ready for use
 
-**Use Cases**:
-- Fix documents photographed in poor lighting conditions
-- Remove shadows and uneven lighting from document captures
-- Enhance visibility of text in dark or poorly lit photos
-- Improve document quality before OCR or archiving
-- Correct lighting issues from flash photography or desk lamps
+**How to use**: Simply drag this block into your workflow, connect your input image, and the block will automatically process it. You can choose to enable or disable illumination correction based on your needs—if your document has good lighting but is warped or curved, you might only need geometric correction.
 
-**Model**: IllTr (Illumination Transformer)
+## How to Get Started
 
-## Getting Started
+### For OOMOL Platform Users
 
-### Requirements
+1. **Import this package** into your OOMOL workspace
+2. **Create a new flow** or use the provided test flow
+3. **Add the Document Image Correction block** to your canvas
+4. **Connect your input image** (from file upload or another block)
+5. **Run the workflow** and view your enhanced document
 
-- OOMOL Platform installed
-- Python 3.10 - 3.12
-- No technical knowledge required!
+### Example Workflow
 
-### Quick Start
+The package includes a ready-to-use test workflow (`test-document-image-correction`) that demonstrates the complete process:
 
-1. **Open OOMOL Platform**
-2. **Load this project**
-3. **Create or open a workflow**
-4. **Add blocks to your workflow**:
-   - For geometric correction: Add "Document Distortion Correction" block
-   - For lighting issues: Add "Document Illumination Correction" block
-   - For both: Chain both blocks together!
-5. **Connect your input image** (browse to select your document photo)
-6. **Run the workflow**
-7. **Get your enhanced document!**
+```
+Input Image → Document Image Correction → Preview Enhanced Result
+```
 
-The processed images will be automatically saved to your storage folder.
+You can duplicate this workflow as a starting point for your own document processing pipelines.
 
-## Example Use Cases
+## Technical Requirements
 
-### Case 1: Business Card Scanning
-You photograph a business card at an angle with your phone. The **Distortion Correction** block automatically straightens it, making all text clearly readable and properly aligned.
+- **Platform**: OOMOL (version with Python 3.10-3.12 support)
+- **Dependencies**: Automatically installed during setup
+- **Processing Time**: Typically 2-10 seconds per image, depending on image size and hardware
 
-### Case 2: Book Page Digitization
-You take a photo of an open book where the pages curve near the binding. The **Distortion Correction** block flattens the curve, creating a scan-like image perfect for reading or archiving.
+## Key Features
 
-### Case 3: Low-Light Document Capture
-You photograph a document in poor lighting with uneven shadows. The **Illumination Correction** block removes shadows and balances the lighting, producing a clear, uniformly lit image.
+✓ **Fully Automated**: No manual adjustments needed—the AI handles everything
+✓ **High Quality**: Uses state-of-the-art deep learning models trained on thousands of document images
+✓ **Flexible**: Can be used as a standalone tool or integrated into larger workflows
+✓ **Batch Processing**: Process multiple documents by connecting this block in a loop
+✓ **Format Support**: Works with all common image formats (JPG, PNG, BMP, TIFF)
 
-### Case 4: Complete Document Enhancement
-You capture a document that's both skewed and poorly lit. Chain both blocks together:
-**Illumination Correction** → **Distortion Correction** → Perfect document!
+## Understanding the Technology
 
-### Case 5: Document Workflow Automation
-Combine these blocks with other OOMOL blocks to create powerful automated workflows:
-- Illumination Correction → Distortion Correction → Extract text (OCR) → Save to database
-- Distortion Correction → Compress image → Email attachment
-- Illumination Correction → Convert to PDF → Archive
-- Combined corrections → Batch process folder → Generate searchable PDFs
+This project uses transformer-based neural networks specifically designed for document enhancement:
 
-## Technical Details (For Developers)
+- **Illumination Correction Model**: Analyzes lighting patterns and reconstructs evenly-lit versions of the document
+- **Geometric Correction Model**: Detects document boundaries and applies intelligent warping to flatten and straighten the image
 
-### Architecture
+Both models have been pre-trained on large datasets and are optimized for speed and accuracy.
 
-**Document Distortion Correction**:
-- **Model**: GeoTr (Geometric Transformer) with U2-Net segmentation
-- **Processing**: Automatic geometric transformation with perspective correction
-- **Input Size**: 288x288 (with automatic resizing)
+## Limitations and Best Practices
 
-**Document Illumination Correction**:
-- **Model**: IllTr (Illumination Transformer)
-- **Processing**: Patch-based processing with 128x128 patches and 12.5% overlap
-- **Method**: Transformer-based deep learning for lighting enhancement
+**For best results**:
+- Ensure the entire document is visible in the photo
+- Avoid extreme angles (greater than 45 degrees from vertical)
+- Provide adequate ambient lighting (the correction works better with some base lighting)
+- Use images with at least 800x600 resolution
 
-**Common Infrastructure**:
-- **Framework**: PyTorch
-- **Inference**: CPU/GPU compatible
-- **Model Loading**: Singleton pattern for efficient memory usage
+**Current limitations**:
+- Works best with single-page documents (not spreads or multiple pages)
+- May struggle with heavily crumpled or torn documents
+- Processing time increases with very high-resolution images (>5000px)
 
-### Dependencies
-- PyTorch >= 2.8.0
-- OpenCV (headless)
-- NumPy < 2.0
-- Pillow >= 11.3.0
-- scikit-image >= 0.25.2
-- timm >= 1.0.20
+## Support and Contributions
 
-### Model Files
-Pre-trained models are automatically loaded from `/oomol-driver/oomol-storage/model_pretrained/`:
-- `seg.pth`: Document segmentation model (4.5MB)
-- `geotr.pth`: Geometric transformation model (99MB)
-- `illtr.pth`: Illumination correction model (50MB)
-
-### Model Source
-All models are sourced from the [DocTr project](https://huggingface.co/spaces/HaoFeng2019/DocTr) on HuggingFace.
-
-## Support
-
-For issues, questions, or feature requests, please contact the OOMOL community or create an issue in the project repository.
+This is an open-source project built for the OOMOL platform. If you encounter issues or have suggestions for improvements, please open an issue in the repository.
 
 ## License
 
-This project is part of the OOMOL ecosystem. Please refer to the project license for usage terms.
+This project is provided as-is for use with the OOMOL platform. Pre-trained AI models are included for non-commercial use.
 
-## Credits
+---
 
-Developed by alwaysmavs | Powered by OOMOL Platform
+**Version**: 0.0.1
+**Author**: alwaysmavs
+**Platform**: OOMOL

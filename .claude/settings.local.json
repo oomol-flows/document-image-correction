@@ -15,7 +15,8 @@
       "Bash(curl -s \"https://huggingface.co/spaces/HaoFeng2019/DocTr/raw/main/inference_ill.py\" -o /tmp/inference_ill.py)",
       "Bash(cat:*)",
       "Read(//oomol-driver/oomol-storage/**)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "WebFetch(domain:arxiv.org)"
     ],
     "deny": [],
     "ask": []
