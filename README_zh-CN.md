@@ -66,19 +66,34 @@
 ## 核心特性
 
 ✓ **全自动化**：无需手动调整——AI 处理一切
-✓ **高质量**：使用在数千张文档图像上训练的最先进深度学习模型
+✓ **最先进性能**：基于 ACM MM 2021 研究成果，相比之前方法实现 15% 绝对性能提升，字符错误率达到 20.02%
+✓ **双重校正**：在一个流程中结合几何展平和光照校正
+✓ **全局上下文理解**：使用 Transformer 自注意力机制捕获文档级别的模式特征
 ✓ **灵活性强**：可作为独立工具使用，也可集成到更大的工作流中
 ✓ **批量处理**：通过在循环中连接此模块来处理多个文档
 ✓ **格式支持**：适用于所有常见图像格式（JPG、PNG、BMP、TIFF）
 
 ## 技术原理
 
-本项目使用专为文档增强设计的基于 Transformer 的神经网络：
+本项目基于 **DocTr（Document Image Transformer，文档图像变换器）**，这是一个在 ACM MM 2021 会议上以口头报告形式发表的最先进深度学习框架。该技术使用专为文档增强设计的基于 Transformer 的神经网络：
 
-- **光照校正模型**：分析光照模式并重建均匀照明的文档版本
-- **几何校正模型**：检测文档边界并应用智能变形以展平和拉直图像
+- **GeoTr（几何展平变换器，Geometric Unwarping Transformer）**：通过检测文档边界并应用智能变形来校正几何畸变，展平和拉直弯曲或扭曲的文档。在 Doc3D 和 DTD 数据集上训练。
 
-两个模型都在大型数据集上进行了预训练，并针对速度和准确性进行了优化。
+- **IllTr（光照校正变换器，Illumination Correction Transformer）**：分析光照模式并重建均匀照明的文档版本，去除阴影并修复曝光问题。在 DocProj 数据集上训练。
+
+两个模型都利用 Transformer 架构实现卓越性能，在大规模数据集上进行了预训练，并针对速度和准确性进行了优化。
+
+### 研究背景
+
+DocTr 解决了文档图像处理中的两个关键挑战：
+1. **几何畸变**：由文档弯曲和相机透视引起
+2. **光照变化**：由拍摄时的不均匀照明条件引起
+
+该框架在 DocUNet 基准测试上达到了最先进的性能，使用 MS-SSIM、局部畸变（LD）和 OCR 准确率等指标进行评估。
+
+**研究论文**：[DocTr: Document Image Transformer for Geometric Unwarping and Illumination Correction](https://arxiv.org/abs/2110.12942)（ACM MM 2021，口头报告）
+
+**原始实现**：[fh2019ustc/DocTr](https://github.com/fh2019ustc/DocTr)
 
 ## 局限性与最佳实践
 
@@ -93,16 +108,30 @@
 - 可能难以处理严重褶皱或撕裂的文档
 - 处理超高分辨率图像（>5000px）时耗时增加
 
+## 引用
+
+如果您在研究或应用中使用此项目，请引用原始 DocTr 论文：
+
+```bibtex
+@inproceedings{feng2021doctr,
+  title={DocTr: Document Image Transformer for Geometric Unwarping and Illumination Correction},
+  author={Feng, Hao and Wang, Yuechen and Zhou, Wengang and Deng, Jiajun and Li, Houqiang},
+  booktitle={Proceedings of the 29th ACM International Conference on Multimedia},
+  pages={273--281},
+  year={2021}
+}
+```
+
+## 致谢
+
+本 OOMOL 实现基于 [DocTr](https://github.com/fh2019ustc/DocTr) 研究成果。
+
+**商业使用联系方式**：如需将原始 DocTr 技术用于商业应用，请联系周文罡教授或冯浩（详见[原始代码仓库](https://github.com/fh2019ustc/DocTr)）。
+
 ## 支持与贡献
 
 这是一个为 OOMOL 平台构建的开源项目。如果您遇到问题或有改进建议，请在代码仓库中提交 issue。
 
 ## 许可证
 
-本项目按原样提供，供 OOMOL 平台使用。预训练的 AI 模型仅供非商业用途使用。
-
----
-
-**版本**：0.0.1
-**作者**：alwaysmavs
-**平台**：OOMOL
+本项目按原样提供，供 OOMOL 平台使用。预训练的 AI 模型仅供非商业用途使用。商业使用请参考原始 DocTr 项目。

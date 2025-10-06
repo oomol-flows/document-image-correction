@@ -66,19 +66,34 @@ You can duplicate this workflow as a starting point for your own document proces
 ## Key Features
 
 ✓ **Fully Automated**: No manual adjustments needed—the AI handles everything
-✓ **High Quality**: Uses state-of-the-art deep learning models trained on thousands of document images
+✓ **State-of-the-Art Performance**: Based on ACM MM 2021 research, achieving 15% absolute improvement over previous methods with 20.02% Character Error Rate
+✓ **Dual Correction**: Combines geometric unwarping and illumination correction in one pipeline
+✓ **Global Context Understanding**: Uses transformer self-attention mechanism to capture document-wide patterns
 ✓ **Flexible**: Can be used as a standalone tool or integrated into larger workflows
 ✓ **Batch Processing**: Process multiple documents by connecting this block in a loop
 ✓ **Format Support**: Works with all common image formats (JPG, PNG, BMP, TIFF)
 
 ## Understanding the Technology
 
-This project uses transformer-based neural networks specifically designed for document enhancement:
+This project is powered by **DocTr (Document Image Transformer)**, a state-of-the-art deep learning framework published at ACM MM 2021 as an oral paper. The technology uses transformer-based neural networks specifically designed for document enhancement:
 
-- **Illumination Correction Model**: Analyzes lighting patterns and reconstructs evenly-lit versions of the document
-- **Geometric Correction Model**: Detects document boundaries and applies intelligent warping to flatten and straighten the image
+- **GeoTr (Geometric Unwarping Transformer)**: Corrects geometric distortions by detecting document boundaries and applying intelligent warping to flatten and straighten warped or curved documents. Trained on Doc3D and DTD datasets.
 
-Both models have been pre-trained on large datasets and are optimized for speed and accuracy.
+- **IllTr (Illumination Correction Transformer)**: Analyzes lighting patterns and reconstructs evenly-lit versions of documents, removing shadows and fixing exposure issues. Trained on the DocProj dataset.
+
+Both models leverage transformer architectures for superior performance and have been pre-trained on large-scale datasets, optimized for both speed and accuracy.
+
+### Research Background
+
+DocTr addresses two critical challenges in document image processing:
+1. **Geometric distortion** caused by document warping and camera perspective
+2. **Illumination variation** from uneven lighting conditions during capture
+
+The framework achieves state-of-the-art performance on the DocUNet Benchmark, evaluated using metrics including MS-SSIM, Local Distortion (LD), and OCR accuracy.
+
+**Research Paper**: [DocTr: Document Image Transformer for Geometric Unwarping and Illumination Correction](https://arxiv.org/abs/2110.12942) (ACM MM 2021, Oral)
+
+**Original Implementation**: [fh2019ustc/DocTr](https://github.com/fh2019ustc/DocTr)
 
 ## Limitations and Best Practices
 
@@ -93,13 +108,33 @@ Both models have been pre-trained on large datasets and are optimized for speed 
 - May struggle with heavily crumpled or torn documents
 - Processing time increases with very high-resolution images (>5000px)
 
+## Citation
+
+If you use this work in your research or applications, please cite the original DocTr paper:
+
+```bibtex
+@inproceedings{feng2021doctr,
+  title={DocTr: Document Image Transformer for Geometric Unwarping and Illumination Correction},
+  author={Feng, Hao and Wang, Yuechen and Zhou, Wengang and Deng, Jiajun and Li, Houqiang},
+  booktitle={Proceedings of the 29th ACM International Conference on Multimedia},
+  pages={273--281},
+  year={2021}
+}
+```
+
+## Acknowledgments
+
+This OOMOL implementation is based on the [DocTr](https://github.com/fh2019ustc/DocTr)
+
+**Contact for Commercial Use**: For commercial applications of the original DocTr technology, please contact Professor Wengang Zhou or Hao Feng (see [original repository](https://github.com/fh2019ustc/DocTr)).
+
 ## Support and Contributions
 
 This is an open-source project built for the OOMOL platform. If you encounter issues or have suggestions for improvements, please open an issue in the repository.
 
 ## License
 
-This project is provided as-is for use with the OOMOL platform. Pre-trained AI models are included for non-commercial use.
+This project is provided as-is for use with the OOMOL platform. Pre-trained AI models are included for non-commercial use. For commercial usage, please refer to the original DocTr project.
 
 ---
 
