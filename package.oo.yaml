@@ -1,9 +1,62 @@
 version: 0.0.1
 scripts:
   bootstrap: |
-    npm install
-    poetry install --no-root
+    set -e
+
+    echo "==> Starting bootstrap process..."
+
+    # Check network connectivity
+    echo "==> Checking network connectivity..."
+    if ! ping -c 1 -W 3 www.google.com > /dev/null 2>&1 && \
+       ! ping -c 1 -W 3 www.baidu.com > /dev/null 2>&1; then
+        echo "Warning: Network connectivity may be limited"
+    fi
+
+    # Install npm dependencies with retries and timeout
+    echo "==> Installing npm dependencies..."
+    npm_install_success=false
+    for i in {1..3}; do
+        echo "Attempt $i/3: npm install"
+        if timeout 300 npm install --prefer-offline --no-audit --loglevel=error; then
+            npm_install_success=true
+            break
+        fi
+        echo "npm install attempt $i failed, retrying..."
+        sleep 5
+    done
+
+    if [ "$npm_install_success" = false ]; then
+        echo "Error: npm install failed after 3 attempts"
+        exit 1
+    fi
+
+    # Configure Poetry to use PyPI mirror (optional, uncomment for China)
+    # poetry config repositories.tsinghua https://pypi.tuna.tsinghua.edu.cn/simple
+    # poetry config repositories.aliyun https://mirrors.aliyun.com/pypi/simple/
+
+    # Install Python dependencies with retries and timeout
+    echo "==> Installing Python dependencies..."
+    poetry_install_success=false
+    for i in {1..3}; do
+        echo "Attempt $i/3: poetry install"
+        if timeout 600 poetry install --no-root --no-interaction; then
+            poetry_install_success=true
+            break
+        fi
+        echo "poetry install attempt $i failed, retrying..."
+        sleep 5
+    done
+
+    if [ "$poetry_install_success" = false ]; then
+        echo "Error: poetry install failed after 3 attempts"
+        exit 1
+    fi
+
+    # Download pretrained models
+    echo "==> Downloading pretrained models..."
     bash scripts/download_models.sh
+
+    echo "==> Bootstrap completed successfully!"
 dependencies:
   oomol-preview: 0.1.7
 name: document-image-correction
