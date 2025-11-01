@@ -4,7 +4,6 @@ nodes:
     task: self::document-image-correction
     inputs_from:
       - handle: input_image
-        value: /oomol-driver/oomol-storage/image/ff8f7869d34add21834a173a058d9305.jpg
       - handle: enable_illumination_correction
         value: true
   - node_id: image_preview#1
